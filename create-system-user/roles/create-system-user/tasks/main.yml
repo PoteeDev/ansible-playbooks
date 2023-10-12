@@ -1,0 +1,20 @@
+---
+- name: Delete user
+  user:
+    name: "{{ system_user }}"
+    state: absent
+    remove: yes
+  become: true
+
+- name: Create user
+  user:
+    name: "{{ system_user }}"
+    comment: MCC System user
+    uid: 1001
+    shell: /bin/bash
+    groups: sudo,docker
+    create_home: yes
+    home: /home/{{ system_user }}
+    password: "{{ system_user_pass }}"
+  become: true
+...
