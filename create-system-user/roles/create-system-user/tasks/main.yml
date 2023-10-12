@@ -9,7 +9,7 @@
 - name: Create user
   user:
     name: "{{ system_user }}"
-    comment: MCC System user
+    comment: System user
     uid: 1001
     shell: /bin/bash
     groups: sudo,docker
